@@ -1,0 +1,52 @@
+{% load wagtailimages_tags %}
+{%image self.EinstellungenHintergrundBild original as HintergrundBild %}
+<section id="{{self.Einstellungen.BlockID}}" class="container-fluid justify-content-center pb-{{self.Einstellungen.BlockAbstandUnten}} pt-{{self.Einstellungen.BlockAbstandOben}} px-{{self.Einstellungen.BlockAbstandSeiten}}" style=" {% if self.HintergrundBild%}  min-height:700px; background-size: cover;background-image: url('{{HintergrundBild.url}}'); background-position: top center; {% else %} background-color:{{self.Einstellungen.BlockHintergrundFarbe}}; {% endif%}">
+
+
+    <div {% if self.EinstellungenBreakpoint %} class="card-group-{{self.Breakpoint}}" {%else%} class="card-group"{%endif%}>
+        
+        {% for card in self.InnenBloecke %}
+                <!-- Abstand zwischen den Bildern-->
+
+                <div class="card col-xl {%if self.Einstellungen.AbstandZwischenBildern %} mx-{{self.Einstellungen.AbstandZwischenBildern }}{%else%}mx-3 {%endif%} {%if not self.Einstellungen.GrauerRand %} border-0 {%else%} {%endif%} {%if self.Einstellungen.Schatten %}shadow{%endif%} " style="background-color: {{card.Einstellungen.HintergrundFarbeKarte}};">
+               
+
+                <!-- Rund  Bilder-->
+                {%if self.Einstellungen.RundeBilder%}
+                     {%if card.Bild%}
+                    {% image card.Bild fill-500x500 as img %}
+                        <div style="padding:5vw;">
+                                <img src="{{ img.url }}" alt="{{ img.alt }}" class="card-img-top rounded" style=" border-radius: 50% !important; border: calc(0.2vw + 4px) solid  {%if self.Einstellungen.FarbeRandUmBilder%} {{self.Einstellungen.FarbeRandUmBilder}}; background-color: {{self.Einstellungen.FarbeRandUmBilder}}; {%else%} gray ;background-color: gray;{%endif%}"/>
+                        </div>
+                    {%endif%}
+                <!-- Viereckige Bilder-->
+                {%else%} 
+
+                    {% image card.Bild original as img %}
+                    {%if card.Bild%}
+                    <div class="h-100 w-100"style=" background-position: center center; background-size:cover; background-image:url('{{img.url}}'); min-height:300px;" ></div>
+                    <!-- <img src="{{ img.url }}" alt="{{ img.alt }}" class="card-img-top"/>-->
+                    {%endif%}
+                {%endif%}
+                <!-- Icon-->
+                {%if card.Einstellungen.Icon %}
+                    <div class="mb-2 text-center"><i class="{{card.Einstellungen.Icon}}"></i></div>
+                {%endif %}
+                <!-- Hat die Card einen Title dann wird der Kartentext mit Button hinzugefügt-->
+                {%if card.Textfeld%}
+                <div class="card-body text-center align-items-center row px-{{card.Einstellungen.TextAbstandSeiten}} pt-{{card.Einstellungen.TextAbstandOben}} pb-{{card.Einstellungen.TextAbstandUnten}}">
+                    <div class="Richtext">
+                    {{card.Textfeld}}
+                    {%if card.Button %}
+                    <div class="row pt-1 {% if card.Einstellungen.ButtonHorizontaleAusrichtung == "a" %} justify-content-start  {%elif card.Einstellungen.ButtonHorizontaleAusrichtung ==  "e" %}justify-content-end {%else%} justify-content-center{%endif%}">
+                        <a type="button" class="btn btn-primary {% if card.Einstellungen.ButtonLang %} w-100 {%else%} w-auto {%endif%} btn pt-{{card.Einstellungen.ButtonAbstandOben}} {%if card.Einstellungen.ButtonStil == "RundeEcken" %} btn-round  {%elif card.Einstellungen.ButtonStil ==  "RundeEckenXl" %}  btn-xl {%elif card.Einstellungen.ButtonStil == "KantenEckenXl" %} btn-lg {%else%}btn{%endif%} {% if card.Einstellugen.Unausgefuellt%} btn-outline-{% if card.Einstellungen.ButtonFarbe%}{{card.Einstellungen.ButtonFarbe}}{%else%}primary{%endif%} {%else%} btn-{% if card.Einstellungen.ButtonFarbe%}{{card.Einstellungen.ButtonFarbe}}{%else%}primary{%endif%}{%endif%}" href=" {% if card.ButtonSeitenwahl %} {{ card.ButtonSeitenwahl.url }} {% elif card.ButtonUrlWahl %}{{ card.ButtonUrlWahl }} {% endif %} "  style="width: auto; color:{{card.Einstellungen.ButtonSchriftFarbe}};">{{card.ButtonTitel}}</a>
+                    </div>
+                    {%endif%}
+                    </div>
+                </div>
+                {%endif%}
+            </div>
+        {% endfor %}
+    </div>
+    
+</section>

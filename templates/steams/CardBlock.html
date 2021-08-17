@@ -1,0 +1,71 @@
+{% load wagtailimages_tags %}
+
+<div class="container-fluid py-{{self.AbstandNachObenUnten}}" id="{{self.id}}" style="background-color: {{self.HintergrundFarbe}}; color: {{self.SchriftFarbe}}">
+    <!--Abstand an den Seiten-->
+    {% if self.title%}
+        <div class="container px-{{self.AbstandSeiten}} ">
+    {%else%} 
+        <div class="container">
+    {% endif%}
+
+    <!--Überschrift-->
+    {% if self.title%}
+    <h1 class="text-center mb-sm-4">{{ self.title }}</h1>
+    <hr class="divider mb-sm-2" />
+    {% endif%}
+    <div class="card-group md">
+        
+        {% for card in self.cards %}
+            {% image card.image fill-500x500 as img %}
+            <!-- Optic einer Bootstrap Karte-->
+            {%if self.CardOptic %}
+                <!-- Abstand zwischen den Bildern-->
+                {%if self.AbstandZwischenBildern %}
+                    <div class="card mx-3 {%if self.Schatten %}shadow{%endif%} " style="background-color: {{card.HintergrundFarbeKarte}};">
+                {%else%} 
+                    <div class="card {%if self.Schatten %}shadow{%endif%} " style="background-color: {{card.HintergrundFarbeKarte}};">
+                {%endif%}
+            {%else%} 
+                {%if self.AbstandZwischenBildern %}
+                
+                    <div class="card mx-3 border-0 {%if self.Schatten %}shadow{%endif%}" style="background-color: {{card.HintergrundFarbeKarte}};">
+                {%else%} 
+                    <div class="card border-0 {%if self.Schatten %}shadow{%endif%} " style="background-color: {{card.HintergrundFarbeKarte}};">
+                {%endif%}
+            {%endif%}
+
+                <!-- Rund oder viereckige Bilder-->
+                {%if self.rounded%}
+                <div style="padding:5vw;">
+                <img src="{{ img.url }}" alt="{{ img.alt }}" class="card-img-top rounded"/>
+                </div>
+                {%else%} 
+                <img src="{{ img.url }}" alt="{{ img.alt }}" class="card-img-top"/>
+                {%endif%}
+                <!-- Icon-->
+                {%if card.icon %}
+                <div class="mb-2 text-center"><i class="bi-{{card.icon}} fs-1 text-primary"></i></div>
+                {%endif %}
+                <!-- Hat die Card einen Title dann wird der Kartentext mit Button hinzugefügt-->
+                {%if card.title %}
+                <div class="card-body text-center align-items-center row">
+                    <div>
+                    <h5 class="card-title text-center">{{ card.title }}</h5>
+                    <p class="card-text text-center">{{ card.text }}</p>
+                    {% if card.button_page %}
+                        <a href="{{ card.button_page.url }}" class="btn btn-primary">
+                            {{card.ButtonText}}
+                        </a>
+                    {% elif card.button_url %}
+                        <a href="{{ card.button_url }}" class="btn btn-primary">
+                            {{card.ButtonText}}
+                        </a>
+                    {% endif %}
+                    </div>
+                </div>
+                {%endif%}
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+</div>

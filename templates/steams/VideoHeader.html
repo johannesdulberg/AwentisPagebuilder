@@ -1,0 +1,30 @@
+{% load static %}
+<header id="VideoHeader">
+
+  <!-- This div is  intentionally blank. It creates the transparent black overlay over the video which you can modify in the CSS -->
+  <div class="overlay"></div>
+
+  <!-- The HTML5 video element that will create the background video on the header -->
+  <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+    <source src="{%static 'assets/background.mp4'%}" type="video/mp4">
+  </video>
+
+  <!-- The header content -->
+  <div class="container px-4 px-lg-5 h-100">
+    <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-8 align-self-end">
+            <h1 class="text-white font-weight-bold">{{self.title}}</h1>
+            <hr class="divider" />
+        </div>
+        <div class="col-lg-8 align-self-baseline">
+            <p class="text-white-75 mb-5">{{self.subtitle}}</p>
+            {% if self.button_page %}
+              <a class="btn btn-primary btn-xl" href="{{ self.button_page.url }}">{{self.BUTTON}}</a>
+            {% elif self.button_url %}
+              <a class="btn btn-primary btn-xl" href="{{ self.button_url }}">{{self.BUTTON}}</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+</header>
+

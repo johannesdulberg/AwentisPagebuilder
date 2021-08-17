@@ -1,0 +1,17 @@
+{% load wagtailcore_tags wagtailimages_tags %}
+<div class="row g-0" id="portfolio" data-masonry='{"percentPosition": true }'>
+    {% for card in self.cards %}
+        {%image card.Bild original as img %}
+        <div class="col-md-6 col-lg-4 h-auto p-1">
+            <a href="{{img.url}}" class="portfolio-box" title="{{img.alt}}">
+                
+                <div class="position-relative" >
+                    <img class="w-100 h-auto"src="{{img.url}}" alt="" >
+                </div>
+
+                 
+            </a>
+        </div>
+
+    {%endfor%}
+</div>

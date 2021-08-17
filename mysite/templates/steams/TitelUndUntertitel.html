@@ -1,0 +1,14 @@
+
+
+
+<section id="{{self.Einstellungen.BlockID}}" class="container-fluid pb-{{self.Einstellungen.BlockAbstandUnten}} pt-{{self.Einstellungen.BlockAbstandOben}} py-{{self.Einstellungen.BlockAbstandSeiten }}" style="background-color:{{self.Einstellungen.BlockHintergrundFarbe}};">
+    <div class="card {%if not self.Einstellungen.KartenOptik%} border-0 {%endif%} {%if self.Einstellungen.Schatten%} shadow {%endif%}py-{{self.Einstellungen.KartenInnenAbstandObenUnten}}  px-{{self.Einstellungen.KartenInnenAbstandSeiten }}" style="background-color:{{self.Einstellungen.KartenHintergrundFarbe}};">
+        <div class="card-body row  align-items-center {%if self.Einstellungen.InhaltHorizontaleAusrichtung == "a" %} justify-content-start text-start {%elif self.Einstellungen.InhaltHorizontaleAusrichtung ==  "e" %} text-end justify-content-end {%else%}justify-content-center text-center{%endif%}">
+            <i class={{self.Einstellungen.Icon}}></i>
+            <h1 class="pb-{{self.Einstellungen.TitelAbstandUnten}} fs-{{self.Einstellungen.TitelSchriftgroesse}}" style="color:{{self.Einstellungen.TitelSchriftFarbe}};">{{self.Titel}}</h1>
+            {%if self.Unterstrich%}<hr class="divider pb-{{self.Einstellungen.UnterstrichAbstandUnten">{%endif%}
+            <p class="pb-{{self.Einstellungen.UntertitelAbstandUnten}} fs-{{self.Einstellungen.UntertitelSchriftgroesse}}" style="color:{{self.Einstellungen.UntertitelSchriftFarbe}};">{{self.Untertitel}}</p>
+            {%if self.Button%} <div class=""><a type="button" class=" w-auto btn pt-{{self.Einstellungen.ButtonAbstandOben}} {%if self.Einstellungen.ButtonStil == "RundeEcken" %} btn-round  {%elif self.Einstellungen.ButtonStil ==  "RundeEckenXl" %}  btn-xl {%elif self.Einstellungen.ButtonStil == "KantenEckenXl" %} btn-lg {%else%}btn{%endif%} {% if self.Einstellugen.Unausgefuellt%} btn-outline-{% if self.Einstellungen.ButtonFarbe%}{{self.Einstellungen.ButtonFarbe}}{%else%}primary{%endif%} {%else%} btn-{% if self.Einstellungen.ButtonFarbe%}{{self.Einstellungen.ButtonFarbe}}{%else%}primary{%endif%}{%endif%}" {% if self.ButtonSeitenwahl %}href="{{ self.ButtonSeitenwahl.url }} {% elif self.ButtonUrlWahl %}href="{{ self.ButtonUrlWahl }}" {% endif %}" style="width: auto; color:{{self.Einstellungen.ButtonSchriftFarbe}};">{{self.ButtonTitel}}</a> </div>{%endif%}
+        </div>
+    </div>
+</section>

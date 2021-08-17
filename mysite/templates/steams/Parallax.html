@@ -1,0 +1,18 @@
+{% load wagtailimages_tags %}
+
+
+<div class="container-fluid g-0 py-{{self.AbstandNachObenUnten}}" id="{{self.id}}" style="background-color: {{self.HintergrundFarbe}}; color: {{self.SchriftFarbe}}">
+    <section class="parallaxContainer" style="overflow: hidden;">
+        <p class="parallaxTitle" style="top:{{self.titleTop}}%;left: {{self.titleLeft}}%;">
+        {{self.title}}</p>
+        {% image self.image original as background%}
+        <img class="parallaxBackground"src="{{background.url}}" alt="">
+        {% for card in self.cards %}
+            {% image card.image original as img %}
+            <img class="parallaxMoveable{{forlopp.counter0}}" src="{{img.url}}" alt="">
+        {% endfor %}
+    </section>
+   
+</div>
+
+

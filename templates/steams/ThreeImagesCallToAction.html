@@ -1,0 +1,48 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{%image self.image1 original as img1 %}
+{%image self.image2 original as img2 %}
+{%image self.image3 original as img3 %}
+
+<section>
+    <div class="row g-0">
+        <div class="col-md-4 ThreeImagesCallToActionSubContainer">
+            <div class="col-12 ThreeImagesCallToActionImageContainer">
+                <img src="{{img1.url}}" alt="">
+            </div>
+            <div class="col-12 ThreeImagesCallToActionTextContainer">
+                <h5>{{self.title1}}</h5>
+                <p>{{self.subtitle1}}</p>
+                <p class="ThreeImagesCallToActionTextContainerInfo">{{self.info1}}</p>
+                <a class="btn btn-primary" href="">{{self.btn1}}</a>
+
+            </div>
+        </div>
+        <div class="col-md-4 ThreeImagesCallToActionSubContainer">
+            <div class="col-12 ThreeImagesCallToActionImageContainer">
+                <img src="{{img2.url}}" alt="">
+            </div>
+            <div class="col-12 ThreeImagesCallToActionTextContainer">
+                <h5>{{self.title2}}</h5>
+                <p>{{self.subtitle2}}</p>
+                <p class="ThreeImagesCallToActionTextContainerInfo">{{self.info2}}</p>
+                <a class="btn btn-primary" href="">{{self.btn2}}</a>
+            </div>
+
+        </div>
+        <div class="col-md-4 ThreeImagesCallToActionSubContainer">
+            <div class="col-12 ThreeImagesCallToActionImageContainer">
+                <img src="{{img3.url}}" alt="">
+            </div>
+            <div class="col-12 ThreeImagesCallToActionTextContainer">
+                <h5>{{self.title3}}</h5>
+                <p>{{self.subtitle3}}</p>
+                <p class="ThreeImagesCallToActionTextContainerInfo">{{self.info3}}</p>
+                <a  class="btn btn-primary" href="">{{self.btn3}}</a>
+            </div>
+
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,31 @@
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+    {%if self.Einstellungen.NavigationsleisteZentriert%}
+    <div class="container w-auto mx-auto">
+    {%else%}
+    <div class="container-fluid px-sm-4 px-md-7">
+    {%endif%}
+        {% if self.WebseitennameSeitenwahl %}
+            <a class="navbar-brand" href="{{self.ButtonSeitenwahl.url}}">{{self.Webseitenname}}</a>
+        {% elif self.WebseitennameUrlWahl %}
+            <a class="navbar-brand" href="{{self.ButtonUrlWahl}}">{{self.Webseitenname}}</a>
+        {% endif %}
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto my-2 my-lg-0 align-items-center">
+                {% for item in self.NavigationsleistenReiter %}
+             
+                    {% if item.ReiterSeitenWahl %}
+        
+                        <li class="nav-item"><a class="nav-link" href="{{ item.ReiterSeitenWahl.url }}">{{item.ReiterTitel}}</a></li>
+                    {% elif item.ReiterUrlWahl %}
+
+                        <li class="nav-item"><a class="nav-link" href="{{ item.ReiterUrlWahl }}">{{item.ReiterTitel}}</a></li>
+                    {% endif %}
+                        
+                {% endfor %}
+                {%if self.ExtraButton%} <div class="ps-3"><a type="button" class=" w-auto btn  {%if self.Einstellungen.ExtraButtonStil == "RundeEcken" %} btn-round  {%elif self.Einstellungen.ExtraButtonStil ==  "RundeEckenXl" %}  btn-xl {%elif self.Einstellungen.ExtraButtonStil == "KantenEckenXl" %} btn-lg {%else%}btn{%endif%} {% if self.Einstellugen.ExtraButtonUnausgefuellt%} btn-outline-{% if self.Einstellungen.ExtraButtonFarbe%}{{self.Einstellungen.ExtraButtonFarbe}}{%else%}primary{%endif%} {%else%} btn-{% if self.Einstellungen.ExtraButtonFarbe%}{{self.Einstellungen.ExtraButtonFarbe}}{%else%}primary{%endif%}{%endif%}" {% if self.ExtraButtonSeitenwahl %}href="{{ self.ExtraButtonSeitenwahl.url }} {% elif self.ExtraButtonUrlWahl %}href="{{ self.ExtraButtonUrlWahl }}" {% endif %}" style="width: auto; color:{{self.Einstellungen.ExtraButtonSchriftFarbe}};">{{self.ExtraButtonTitel}}</a> </div>{%endif%}
+            </ul>
+        </div>
+    </div>
+</nav>

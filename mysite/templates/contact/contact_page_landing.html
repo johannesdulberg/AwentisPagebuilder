@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+
+    <div class="container mt-5 mb-5 text-center">
+        <p>
+            {{ self.thank_you_text|richtext }}
+        </p>
+    </div>
+
+{% endblock %}

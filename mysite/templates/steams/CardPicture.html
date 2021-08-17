@@ -1,0 +1,84 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{%if self.rounded%}
+    {%image self.image fill-800x800 as img %}
+    <section>
+        <div class="row g-0 px-sm-{{self.AbstandSeiten}} pb-{{self.AbstandNachUnten}} pt-{{self.AbstandNachOben}}">
+            {% ifequal self.position "left" %}
+            <div class="col-md-6 " id="CardImageContainer" style="padding: 8vw;">
+            
+               <img src="{{img.url}}" alt="" style="border-radius: 50%;">
+            </div>
+            <div class="card-body col-md-6 align-middle " id=CardImageTextContainer>
+                <div>
+                    <h5>{{self.title}}</h5>
+                    <p>{{self.subtitle}}</p>
+                    {% if self.btn %}
+                        <a href="{{ self.button_url }}" class="btn btn-primary">{{self.btn}}</a>
+                    {% endif %}
+                </div>
+            </div>
+            {%else%}
+            <div class="col-md-6 order-md-2 " id="CardImageContainer" style="padding: 8vw;" >
+            
+                <img src="{{img.url}}" alt="" style="border-radius: 50%;">
+            </div>
+            <div class="card-body col-md-6 align-middle order-md-1" id=CardImageTextContainer>
+                   <div>
+                       <h5>{{self.title}}</h5>
+                       <p>{{self.subtitle}}</p>
+                       {% if self.btn %}
+                            <a href="{{ self.button_url }}" class="btn btn-primary">{{self.btn}}</a>
+                       {% endif %}
+                   </div>
+            </div>
+            
+            {%endifequal%}
+    
+        </div>
+    </section>
+
+
+{%else%} 
+    {%image self.image original as img %}
+    <section>
+        <div class="row g-0 px-sm-{{self.AbstandSeiten}} pb-{{self.AbstandNachUnten}} pt-{{self.AbstandNachOben}}">
+            {% ifequal self.position "left" %}
+            <div class="col-md-6 " id="CardImageContainer">
+            
+             <img src="{{img.url}}" alt="">
+            </div>
+            <div class="card-body col-md-6 align-middle" id=CardImageTextContainer>
+                <div>
+                    <h5>{{self.title}}</h5>
+                    <p>{{self.subtitle}}</p>
+                    {% if self.btn %}
+                        <a href="{{ self.button_url }}" class="btn btn-primary">{{self.btn}}</a>
+                    {% endif %}
+                </div>
+            </div>
+            {%else%}
+            <div class="col-md-6 order-md-2" id="CardImageContainer" >
+            
+                <img src="{{img.url}}" alt="">
+            </div>
+            <div class="card-body col-md-6 align-middle  order-md-1" id=CardImageTextContainer>
+                   <div>
+                       <h5>{{self.title}}</h5>
+                       <p>{{self.subtitle}}</p>
+                       {% if self.btn %}
+                       <a href="{{ self.button_url }}" class="btn btn-primary">{{self.btn}}</a>
+                       {% endif %}
+                   </div>
+            </div>
+            
+            {%endifequal%}
+    
+        </div>
+    </section>
+{%endif%}
+
+
+
+        

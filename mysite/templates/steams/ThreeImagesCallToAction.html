@@ -1,0 +1,53 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{%image self.image1 fill-500x500 as img1 %}
+{%image self.image2 fill-500x500 as img2 %}
+{%image self.image3 fill-500x500 as img3 %}
+{%image self.BackgroundImage original as BackgroundImage %}
+
+<section>
+    {% if self.BackgroundImage %}
+        <div class="row g-0" style="background-size: cover;background-image: url('{{BackgroundImage.url}}'); background-position: top center">
+    {% else %}
+        <div class="row g-0" style="background-color: {{self.HintergrundFarbe}}; ">
+    {% endif%}
+        <div class="col-md-4 ThreeImagesCallToActionSubContainer">
+            <div class="col-12 ThreeImagesCallToActionImageContainer">
+                <img src="{{img1.url}}" alt="">
+            </div>
+            <div class="col-12 ThreeImagesCallToActionTextContainer">
+                <h5>{{self.title1}}</h5>
+                <p>{{self.subtitle1}}</p>
+                <p class="ThreeImagesCallToActionTextContainerInfo">{{self.info1}}</p>
+                <a class="btn btn-primary" href="">{{self.btn1}}</a>
+
+            </div>
+        </div>
+        <div class="col-md-4 ThreeImagesCallToActionSubContainer">
+            <div class="col-12 ThreeImagesCallToActionImageContainer">
+                <img src="{{img2.url}}" alt="">
+            </div>
+            <div class="col-12 ThreeImagesCallToActionTextContainer">
+                <h5>{{self.title2}}</h5>
+                <p>{{self.subtitle2}}</p>
+                <p class="ThreeImagesCallToActionTextContainerInfo">{{self.info2}}</p>
+                <a class="btn btn-primary" href="">{{self.btn2}}</a>
+            </div>
+
+        </div>
+        <div class="col-md-4 ThreeImagesCallToActionSubContainer">
+            <div class="col-12 ThreeImagesCallToActionImageContainer">
+                <img src="{{img3.url}}" alt="">
+            </div>
+            <div class="col-12 ThreeImagesCallToActionTextContainer">
+                <h5>{{self.title3}}</h5>
+                <p>{{self.subtitle3}}</p>
+                <p class="ThreeImagesCallToActionTextContainerInfo">{{self.info3}}</p>
+                <a  class="btn btn-primary" href="">{{self.btn3}}</a>
+            </div>
+
+        </div>
+    </div>
+
+</section>

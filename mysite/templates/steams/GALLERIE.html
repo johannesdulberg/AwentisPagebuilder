@@ -1,0 +1,78 @@
+{% load static %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{%image self.Image1 original as img1 %}
+{%image self.Image2 original as img2 %}
+{%image self.Image3 original as img3 %}
+{%image self.Image4 original as img4 %}
+{%image self.Image5 original as img5 %}
+{%image self.Image6 original as img6 %}
+{%image self.Image1Thumbnail original as img1th %}
+{%image self.Image2Thumbnail original as img2th %}
+{%image self.Image3Thumbnail original as img3th %}
+{%image self.Image4Thumbnail original as img4th %}
+{%image self.Image5Thumbnail original as img5th %}
+{%image self.Image6Thumbnail original as img6th %}
+
+
+
+<div id="portfolio">
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{{img1.url}}" title="{{self.Image1Project}}">
+                    <img class="img-fluid" src="{{img1th.url}}" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">{{self.Image1Categorie}}</div>
+                        <div class="project-name">{{self.Image1Project}}</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{{img2.url}}" title="{{self.Image2Project}}">
+                    <img class="img-fluid" src="{{img2th.url}}" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">{{self.Image2Categorie}}</div>
+                        <div class="project-name">{{self.Image2Project}}</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{{img3.url}}" title="{{self.Image3Project}}">
+                    <img class="img-fluid" src="{{img3th.url}}" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">{{self.Image3Categorie}}</div>
+                        <div class="project-name">{{self.Image3Project}}</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{{img4.url}}" title="{{self.Image4Project}}">
+                    <img class="img-fluid" src="{{img4th.url}}" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">{{self.Image4Categorie}}</div>
+                        <div class="project-name">{{self.Image4Project}}</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{{img5.url}}" title="{{self.Image5Project}}">
+                    <img class="img-fluid" src="{{img5th.url}}" alt="..." />
+                    <div class="portfolio-box-caption">
+                        <div class="project-category text-white-50">{{self.Image5Categorie}}</div>
+                        <div class="project-name">{{self.Image5Project}}</div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-sm-6">
+                <a class="portfolio-box" href="{{img6.url}}" title="{{self.Image6Project}}">
+                    <img class="img-fluid" src="{{img6th.url}}" alt="..." />
+                    <div class="portfolio-box-caption p-3">
+                        <div class="project-category text-white-50">{{self.Image6Categorie}}</div>
+                        <div class="project-name">{{self.Image6Project}}</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

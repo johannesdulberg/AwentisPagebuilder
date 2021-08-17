@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags %}
+
+
+{% block content %}
+    {%for block in page.content%}
+      {% include_block block %}
+   {% endfor %}
+
+    <style>
+        
+    </style>
+
+    <div class="container">
+        <form action="{% pageurl page %}" method="POST">
+            {% csrf_token %}
+            <ul class="contact-form row justify-content-center">
+                {{ form.as_ul }}
+                <li>
+                    <button type="submit" class="btn btn-primary btn-xl">
+                        Abschicken
+                    </button>
+                </li>
+            </ul>
+
+            
+        </form>
+    </div>
+
+{% endblock %}

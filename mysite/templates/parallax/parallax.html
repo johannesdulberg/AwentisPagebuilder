@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{%load static%}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+
+
+
+
+{% block content %}
+   
+   {%for block in page.content%}
+        {%if forloop.counter0 < 2 %}
+                {% include_block block %}
+        {%else%}
+                <div class="parallaxContent">
+                    {% include_block block %}   
+                </div>                   
+        {%endif%}
+   {% endfor %}
+<footer class="bg-white py-5 parallaxContent">
+        <div class="container px-4 px-lg-5">
+                <div class="small text-center text-muted">
+                        Copyright &copy; 2021 - <a href="{% static 'assets/impressum/impressum.html'%}" class="small text-center text-muted">Impressum</a>
+                </div>
+
+        </div>
+</footer>
+                 
+{% endblock %}
+

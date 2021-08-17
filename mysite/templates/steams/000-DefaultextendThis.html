@@ -1,0 +1,20 @@
+{% load wagtailimages_tags %}
+
+<div class="container-fluid py-{{self.AbstandNachObenUnten}}" id="{{self.id}}" style="background-color: {{self.HintergrundFarbe}}; color: {{self.SchriftFarbe}}">
+   
+</div>
+
+{% for card in self.cards %}
+{% image img.image original as img %}
+{% endfor %}
+
+{% if card.button_page %}
+            <a href="{{ card.button_page.url }}" class="btn btn-primary">
+                {{card.ButtonText}}
+            </a>
+{% elif card.button_url %}
+            <a href="{{ card.button_url }}" class="btn btn-primary">
+                {{card.ButtonText}}
+            </a>
+{% endif %}
+{{img.url}}

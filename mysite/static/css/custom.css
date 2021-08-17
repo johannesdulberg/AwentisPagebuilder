@@ -1,0 +1,21 @@
+.structblock{
+    border: solid lightgray 1px;
+    padding:5px;
+    border-radius: 3px;
+    opacity: 0.55;
+    
+    
+    
+    
+}
+.structblock>div{
+    display: none;
+}
+
+.field__label:hover + .structblock{
+    display: block;
+}
+.structblock:hover >div{
+    display: block !important;
+
+}

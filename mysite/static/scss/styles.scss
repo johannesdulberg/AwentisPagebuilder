@@ -1,0 +1,499 @@
+// 
+// Styles
+// 
+
+// Import custom variables and override default Bootstrap variables
+@import "./variables.scss";
+
+// Import Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// Import custom styles
+@import "./global.scss";
+
+// Components
+@import "./components/buttons.scss";
+@import "./components/dividers.scss";
+@import "./components/navbar.scss";
+
+// Sections
+@import "./sections/masthead.scss";
+@import "./sections/portfolio.scss";
+
+
+
+
+
+/* MY CSS */
+#VideoHeader {
+    position: relative;
+    background-color: black;
+    height: 75vh;
+    min-height: 25rem;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  #VideoHeader video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+  }
+  @media (min-width: 1200px) {
+    #VideoHeader video {
+      top: 60%;
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    #VideoHeader video {
+      top: 70%;
+    }
+  }
+  
+  
+  #VideoHeader .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  #VideoHeader .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.2;
+    z-index: 1;
+  }
+  
+  /* Media Query for devices withi coarse pointers and no hover functionality */
+  
+  /* This will use a fallback image instead of a video for devices that commonly do not support the HTML5 video element */
+  
+  /* VideoHeader 
+  #VideoHeader {
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.2) 0%, rgba(92, 77, 66, 0.2) 100%), url('https://i.ibb.co/j4MBxJR/banner.jpg');
+    padding-top: 10rem;
+    padding-bottom: calc(10rem - 4.5rem);
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: scroll !important;
+    background-size: cover !important; 
+  }
+  
+  #VideoHeader video {
+    display: none;
+  }
+  */
+  /*CardImage*/
+  #CardImageContainer>img{
+  
+  
+      width: 100%;
+      height: auto;
+  
+  }
+  #CardImageTextContainer{ 
+    text-align: center;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /*ThreeImagesCallToAction*/
+  .ThreeImagesCallToActionSubContainer{
+    padding: 1vw;
+  }
+  
+  .ThreeImagesCallToActionImageContainer>img{
+    
+    height: 100%;
+    width: auto;
+    transition: 1s;
+  }
+  
+  .ThreeImagesCallToActionImageContainer{
+    display: flex;
+    overflow:hidden;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .ThreeImagesCallToActionSubContainer:hover>.ThreeImagesCallToActionImageContainer>img{
+    transform: translateY(-100%);
+    transition: all 1s;
+  } 
+  .ThreeImagesCallToActionSubContainer:hover>.ThreeImagesCallToActionTextContainer{
+    transform: translateY(-30vh);
+    transition: all 1s;
+  } 
+  
+  
+  
+  .ThreeImagesCallToActionTextContainer{
+    padding-top: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    display: flex;
+    flex-direction: column;
+  }
+  .ThreeImagesCallToActionTextContainerInfo{
+    display: none;
+  }
+  .ThreeImagesCallToActionSubContainer:hover .ThreeImagesCallToActionTextContainerInfo{
+    display: inline;
+  } 
+  .ThreeImagesCallToActionTextContainer>p{
+    text-align: center;
+  }
+  
+  /* CardPicture */
+  .rounded{
+    border-radius: 50% !important;
+    border: calc(0.2vw + 4px) solid gray; 
+    background-color: gray;
+  }
+  
+  /* MUSIKSEITE*/
+  
+  /* ClickableCardBlock */
+  
+  .masthead{
+    height:60vh;
+  }  
+  
+  .ClickableCardBlockButton:hover .ClickableCardBlockImage{
+    transform: scale(1.2);
+    filter: brightness(50%);
+    transition: 0.7s;
+  
+  
+  }
+  .ClickableCardBlockImage{
+    width: 100%;
+  }
+  
+  .ClickableCardBlockButton{
+    position: relative;
+    width: 100%;
+    
+  }
+  
+  .ClickableCardBlockText{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  
+  
+  @media (min-width: 1200px) {
+    .ClickableCardBlockImage{
+      transform: translateY(-60px);
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    #VideoHeader video {
+      top: 70% ;
+      
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .ClickableCardBlockImage{
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .ClickableCardBlockButton{
+      height: 100%;
+      
+    }
+  }
+  
+  .contact-form {
+    list-style-type: none;
+    padding-right: 20vw;
+    padding-left: 20vw;
+  }
+  .contact-form li {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .contact-form label {
+  
+    font-weight: bold;
+  }
+  .contact-form input, textarea{
+    border-color: #ccc;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+  }
+  
+  .contact-form .helptext {
+  
+    font-size: 80%;
+  }
+  
+  
+  @media (max-width: 600px) {
+    .contact-form {
+      padding-right: 0vw;
+      padding-left: 0vw;
+    }
+  }
+  
+  .parallaxContainer{
+    height: 100vh;
+    position: relative;
+  }
+  
+  .parallaxContainer img{
+    width: 100%;
+    position: absolute;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+  }
+  
+  .parallaxTitle{
+    position: absolute;
+  
+    font-size: calc(15px + 5vw);
+    color: white;
+    transform: translate(-50%,-40%);
+  }
+  .mastheadSmall{
+
+    height: 380px !important;
+  }
+
+  .Richtext a{
+    @extend .btn;
+    @extend .btn-primary;
+  }
+.Richtext hr{
+  height: 0.2rem;
+  max-width: 3.25rem;
+  margin: 1.5rem auto;
+  background-color: $primary;
+  opacity: 1;
+}
+
+.self-muted{
+  opacity: 0.7;
+
+}
+p:empty{
+  display: none;
+}
+
+.card-group-md {
+  // The child selector allows nested `.card` within `.card-group`
+  // to display properly.
+  > .card {
+    margin-bottom: $card-group-margin;
+  }
+
+  @include media-breakpoint-up(md) {
+    display: flex;
+    flex-flow: row wrap;
+    // The child selector allows nested `.card` within `.card-group`
+    // to display properly.
+    > .card {
+      // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+      flex: 1 0 0%;
+      margin-bottom: 0;
+
+      + .card {
+        margin-left: 0;
+        border-left: 0;
+      }
+
+      // Handle rounded corners
+      @if $enable-rounded {
+        &:not(:last-child) {
+          @include border-end-radius(0);
+
+          .card-img-top,
+          .card-header {
+            // stylelint-disable-next-line property-disallowed-list
+            border-top-right-radius: 0;
+          }
+          .card-img-bottom,
+          .card-footer {
+            // stylelint-disable-next-line property-disallowed-list
+            border-bottom-right-radius: 0;
+          }
+        }
+
+        &:not(:first-child) {
+          @include border-start-radius(0);
+
+          .card-img-top,
+          .card-header {
+            // stylelint-disable-next-line property-disallowed-list
+            border-top-left-radius: 0;
+          }
+          .card-img-bottom,
+          .card-footer {
+            // stylelint-disable-next-line property-disallowed-list
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+.card-group-sm {
+  // The child selector allows nested `.card` within `.card-group`
+  // to display properly.
+  > .card {
+    margin-bottom: $card-group-margin;
+  }
+
+  @include media-breakpoint-up(sm) {
+    display: flex;
+    flex-flow: row wrap;
+    // The child selector allows nested `.card` within `.card-group`
+    // to display properly.
+    > .card {
+      // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+      flex: 1 0 0%;
+      margin-bottom: 0;
+
+      + .card {
+        margin-left: 0;
+        border-left: 0;
+      }
+
+      // Handle rounded corners
+      @if $enable-rounded {
+        &:not(:last-child) {
+          @include border-end-radius(0);
+
+          .card-img-top,
+          .card-header {
+            // stylelint-disable-next-line property-disallowed-list
+            border-top-right-radius: 0;
+          }
+          .card-img-bottom,
+          .card-footer {
+            // stylelint-disable-next-line property-disallowed-list
+            border-bottom-right-radius: 0;
+          }
+        }
+
+        &:not(:first-child) {
+          @include border-start-radius(0);
+
+          .card-img-top,
+          .card-header {
+            // stylelint-disable-next-line property-disallowed-list
+            border-top-left-radius: 0;
+          }
+          .card-img-bottom,
+          .card-footer {
+            // stylelint-disable-next-line property-disallowed-list
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+.card-group-xl {
+  // The child selector allows nested `.card` within `.card-group`
+  // to display properly.
+  > .card {
+    margin-bottom: $card-group-margin;
+  }
+
+  @include media-breakpoint-up(xl) {
+    display: flex;
+    flex-flow: row wrap;
+    // The child selector allows nested `.card` within `.card-group`
+    // to display properly.
+    > .card {
+      // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+      flex: 1 0 0%;
+      margin-bottom: 0;
+
+      + .card {
+        margin-left: 0;
+        border-left: 0;
+      }
+
+      // Handle rounded corners
+      @if $enable-rounded {
+        &:not(:last-child) {
+          @include border-end-radius(0);
+
+          .card-img-top,
+          .card-header {
+            // stylelint-disable-next-line property-disallowed-list
+            border-top-right-radius: 0;
+          }
+          .card-img-bottom,
+          .card-footer {
+            // stylelint-disable-next-line property-disallowed-list
+            border-bottom-right-radius: 0;
+          }
+        }
+
+        &:not(:first-child) {
+          @include border-start-radius(0);
+
+          .card-img-top,
+          .card-header {
+            // stylelint-disable-next-line property-disallowed-list
+            border-top-left-radius: 0;
+          }
+          .card-img-bottom,
+          .card-footer {
+            // stylelint-disable-next-line property-disallowed-list
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+.MasterheadKleinA{
+  height:380px !important;
+}
+
+.MasterheadKleinP{
+  height: 20vh !important;
+}
+.MasterheadSehrKleinP{
+  height:30vh !important;
+}
+.MasterheadGrossP{
+  height: 60vh !important;
+}
+.MasterheadSehrKleinA{
+  height:220px !important;
+}
+.MasterheadGrossA{
+  height:700px !important;
+}
